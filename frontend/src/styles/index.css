@@ -1,0 +1,2222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── EMR-Copilot macOS Glass Design System ── */
+
+@layer components {
+  .ambient-bg {
+    @apply bg-gradient-to-br from-slate-50 via-blue-50/20 to-slate-100/50;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 20% -10%, rgba(99, 102, 241, 0.09), transparent),
+      radial-gradient(ellipse 60% 40% at 90% 10%, rgba(59, 130, 246, 0.07), transparent),
+      linear-gradient(to bottom right, rgb(248 250 252), rgba(239 246 255 / 0.25), rgba(241 245 249 / 0.55));
+  }
+
+  /* Portal 首页 — macOS 风格全屏多色 mesh 渐变，与子页面工作站区分 */
+  .portal-bg {
+    @apply bg-slate-50;
+    background-image:
+      radial-gradient(ellipse 85% 65% at 12% 18%, rgba(168, 85, 247, 0.2), transparent 55%),
+      radial-gradient(ellipse 80% 60% at 88% 12%, rgba(236, 72, 153, 0.16), transparent 52%),
+      radial-gradient(ellipse 75% 65% at 18% 88%, rgba(59, 130, 246, 0.18), transparent 55%),
+      radial-gradient(ellipse 78% 62% at 82% 85%, rgba(34, 211, 238, 0.14), transparent 52%),
+      radial-gradient(ellipse 95% 75% at 50% 50%, rgba(99, 102, 241, 0.12), transparent 58%),
+      radial-gradient(ellipse 65% 50% at 72% 42%, rgba(168, 85, 247, 0.1), transparent 50%),
+      radial-gradient(ellipse 60% 48% at 28% 55%, rgba(236, 72, 153, 0.09), transparent 48%),
+      radial-gradient(ellipse 70% 55% at 55% 8%, rgba(59, 130, 246, 0.1), transparent 52%),
+      linear-gradient(
+        135deg,
+        rgba(237, 233, 254, 0.5) 0%,
+        rgba(239, 246, 255, 0.42) 20%,
+        rgba(252, 231, 243, 0.3) 45%,
+        rgba(224, 242, 254, 0.38) 70%,
+        rgba(245, 243, 255, 0.45) 100%
+      );
+  }
+
+  .glass-panel {
+    @apply rounded-2xl border border-white/60 bg-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-xl transition-all duration-300 ease-out;
+  }
+
+  .glass-panel-elevated {
+    @apply rounded-3xl border border-white/60 bg-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-2xl transition-all duration-300 ease-out;
+  }
+
+  .glass-card {
+    @apply rounded-xl border border-white/60 bg-white/60 shadow-[0_4px_24px_rgba(0,0,0,0.04)] backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-px hover:shadow-md hover:shadow-blue-900/5;
+  }
+
+  .glass-subcard {
+    @apply rounded-xl border border-white/50 bg-white/40 backdrop-blur-md;
+  }
+
+  .glass-header {
+    @apply shrink-0 border-b border-white/40 bg-white/30 px-6 py-4 backdrop-blur-xl;
+  }
+
+  .glass-sidebar {
+    @apply flex flex-col overflow-hidden rounded-3xl border border-white/60 bg-white/40 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-xl;
+  }
+
+  .glass-modal {
+    @apply relative overflow-hidden rounded-2xl border border-white/60 bg-white/70 shadow-[0_8px_40px_rgb(0,0,0,0.08)] backdrop-blur-2xl;
+  }
+
+  .glass-modal-overlay {
+    @apply absolute inset-0 bg-slate-900/30 backdrop-blur-md;
+  }
+
+  .glass-btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600/95 to-indigo-600/95 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(37,99,235,0.25),inset_0_1px_0_rgba(255,255,255,0.2)] transition-all duration-300 ease-out hover:-translate-y-px hover:from-blue-600 hover:to-indigo-600 hover:shadow-[0_6px_20px_rgba(37,99,235,0.3)] active:scale-[0.98];
+  }
+
+  .glass-btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-white/60 bg-white/50 px-4 py-2.5 text-sm font-semibold text-slate-600 shadow-sm backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-px hover:bg-white/70 hover:text-slate-800 active:scale-[0.98];
+  }
+
+  .glass-tab-track {
+    @apply flex rounded-lg border border-white/40 bg-white/30 p-1 backdrop-blur-md;
+  }
+
+  .glass-tab-active {
+    @apply rounded-md bg-white/80 text-blue-600 shadow-sm shadow-blue-900/5 backdrop-blur-sm;
+  }
+
+  .glass-tab-inactive {
+    @apply rounded-md text-slate-500 transition-colors hover:text-slate-700;
+  }
+
+  .glass-input-bar {
+    @apply flex items-center gap-3 rounded-full border border-white/60 bg-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-xl transition-all duration-300 ease-out focus-within:border-white/80 focus-within:bg-white/75 focus-within:shadow-[0_12px_36px_rgb(0,0,0,0.06)];
+  }
+
+  /* ── Portal 多模态指令中枢（OmniCommandCenter） ── */
+  .omni-cmd-form {
+    @apply relative w-full shrink-0 rounded-2xl border border-white/60 bg-white/40 shadow-[0_4px_24px_rgba(0,0,0,0.04)] backdrop-blur-2xl transition-all duration-300 ease-out focus-within:border-white/80 focus-within:bg-white/60 focus-within:shadow-[0_8px_32px_rgba(0,0,0,0.08)];
+  }
+
+  .omni-cmd-form--dragging {
+    @apply border-blue-300/80 bg-blue-50/50 ring-2 ring-blue-400/25;
+  }
+
+  .omni-cmd-textarea-area {
+    @apply relative px-3.5 pb-2 pt-3 transition-colors;
+  }
+
+  .omni-cmd-textarea-area--listening {
+    @apply bg-red-50/30;
+  }
+
+  .omni-cmd-textarea {
+    @apply custom-scrollbar max-h-[120px] min-h-[24px] w-full resize-none overflow-y-auto border-0 bg-transparent text-sm leading-relaxed text-slate-700 outline-none ring-0 placeholder:text-slate-400 disabled:opacity-60;
+  }
+
+  .omni-cmd-file-chip {
+    @apply inline-flex max-w-full items-center gap-1 rounded-lg border border-white/70 bg-white/50 px-2 py-0.5 text-[10px] font-medium text-slate-600;
+  }
+
+  .omni-cmd-icon-btn {
+    @apply rounded-xl p-2 text-slate-500 transition-all duration-200 hover:bg-white/70 hover:text-blue-600 active:scale-95 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent;
+  }
+
+  .omni-cmd-icon-btn--listening {
+    @apply animate-pulse bg-red-50/80 text-red-500 hover:bg-red-100/80;
+  }
+
+  .omni-cmd-submit-btn {
+    @apply inline-flex items-center gap-1.5 rounded-xl bg-blue-600 px-3.5 py-2 text-xs font-bold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-700 active:scale-[0.97] disabled:scale-100 disabled:opacity-45 disabled:shadow-none;
+  }
+
+  .omni-cmd-breathe-glow {
+    @apply pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400/5 via-indigo-400/10 to-blue-400/5;
+    animation: omni-cmd-breathe 2s ease-in-out infinite;
+  }
+
+  /* ── Portal 顶栏（Header + UserPopover） ── */
+  .portal-header {
+    @apply z-20 flex h-16 shrink-0 items-center justify-between border-b border-white/50 bg-white/50 px-6 shadow-[0_4px_24px_rgba(0,0,0,0.03)] backdrop-blur-xl;
+  }
+
+  .portal-header-brand {
+    @apply flex min-w-0 items-center gap-3;
+  }
+
+  .portal-header-logo {
+    @apply flex size-10 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white shadow-md;
+  }
+
+  .portal-header-title {
+    @apply m-0 text-xl font-bold leading-none tracking-tight text-slate-800;
+  }
+
+  .portal-header-title-sub {
+    @apply ml-1 font-light text-slate-500;
+  }
+
+  .portal-user-trigger {
+    @apply flex items-center gap-3 rounded-xl transition-opacity hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/40;
+  }
+
+  .portal-user-trigger-text {
+    @apply hidden flex-col justify-center gap-0.5 text-right leading-tight sm:flex;
+  }
+
+  .portal-user-trigger-text p {
+    @apply m-0 leading-tight;
+  }
+
+  .portal-user-avatar {
+    @apply flex size-10 items-center justify-center rounded-full border-2 border-white bg-gradient-to-tr from-indigo-500 to-blue-400 text-white shadow-sm;
+  }
+
+  .portal-user-menu {
+    @apply absolute right-0 top-full z-[120] mt-2 w-72 origin-top-right transition-all duration-300 ease-out;
+  }
+
+  .portal-user-menu--open {
+    @apply pointer-events-auto scale-100 opacity-100;
+  }
+
+  .portal-user-menu--closed {
+    @apply pointer-events-none scale-95 opacity-0;
+  }
+
+  .portal-user-menu-panel {
+    @apply overflow-hidden rounded-2xl border border-white/60 bg-white/75 shadow-2xl shadow-slate-200/50 backdrop-blur-2xl;
+  }
+
+  .portal-user-menu-header {
+    @apply border-b border-white/40 px-4 py-4;
+  }
+
+  .portal-user-menu-avatar-lg {
+    @apply flex size-12 shrink-0 items-center justify-center rounded-full border-2 border-white bg-gradient-to-tr from-indigo-500 to-blue-400 text-white shadow-md;
+  }
+
+  .portal-user-agent-status {
+    @apply mt-1 flex items-center gap-1 text-[11px] font-medium;
+  }
+
+  .portal-user-agent-status-text {
+    @apply bg-gradient-to-r from-indigo-600 via-blue-600 to-violet-600 bg-clip-text text-transparent;
+  }
+
+  .portal-user-menu-divider {
+    @apply my-1.5 border-t border-white/40;
+  }
+
+  .portal-user-menu-item {
+    @apply flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm font-medium text-slate-700 transition-all duration-200 ease-out hover:bg-white/50;
+  }
+
+  .portal-user-menu-item--highlight {
+    @apply text-blue-700 hover:bg-blue-50/40;
+  }
+
+  .portal-user-menu-item--danger {
+    @apply text-slate-600 hover:bg-red-50/50 hover:text-red-500;
+  }
+
+  .portal-user-menu-item-icon {
+    @apply flex size-8 shrink-0 items-center justify-center rounded-lg border border-white/60 bg-white/40 text-slate-500 backdrop-blur-sm;
+  }
+
+  .portal-user-menu-item-icon--highlight {
+    @apply text-blue-600;
+  }
+
+  /* Portal 三栏主布局：左 370px · 中自适应 · 右 400px */
+  .portal-three-col {
+    grid-template-columns: 370px minmax(0, 1fr) 400px;
+  }
+
+  .portal-left-column {
+    @apply w-[370px] min-w-[370px] max-w-[370px];
+  }
+
+  .portal-right-column {
+    @apply w-[400px] min-w-[400px] max-w-[400px];
+  }
+
+  .portal-left-section-label {
+    @apply mb-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400;
+  }
+
+  .portal-me-panel-head {
+    @apply shrink-0 border-b border-white/50 pb-3;
+  }
+
+  .portal-me-identity {
+    @apply flex items-start gap-3;
+  }
+
+  .portal-me-avatar-ring {
+    @apply relative shrink-0;
+  }
+
+  .portal-me-avatar {
+    @apply flex size-12 items-center justify-center rounded-2xl border border-indigo-100/80 bg-gradient-to-br from-indigo-50 to-white shadow-inner;
+  }
+
+  .portal-me-avatar-badge {
+    @apply absolute -bottom-0.5 -right-0.5 flex size-5 items-center justify-center rounded-full border-2 border-white bg-white text-[10px] shadow-sm;
+  }
+
+  .portal-me-name {
+    @apply m-0 text-base font-bold text-slate-800;
+  }
+
+  .portal-me-dept {
+    @apply m-0 mt-0.5 text-[11px] text-slate-500;
+  }
+
+  .portal-me-agent-line {
+    @apply m-0 mt-1 flex items-center gap-1 text-[10px] font-medium text-indigo-700;
+  }
+
+  .portal-me-mode-block {
+    @apply shrink-0 py-2;
+  }
+
+  .portal-me-mode-grid {
+    @apply grid grid-cols-3 gap-1.5;
+  }
+
+  .portal-me-mode-btn {
+    @apply flex flex-col items-center gap-1 rounded-xl border border-white/60 bg-white/35 px-1.5 py-2.5 text-center transition-all hover:border-indigo-200 hover:bg-white/60;
+  }
+
+  .portal-me-mode-btn--active {
+    @apply border-indigo-300 bg-indigo-50/80 shadow-sm ring-1 ring-indigo-500/15;
+  }
+
+  .portal-me-mode-btn-label {
+    @apply text-xs font-bold text-slate-800;
+  }
+
+  .portal-me-mode-btn-status {
+    @apply mt-0.5 text-[10px] font-semibold leading-none;
+  }
+
+  .portal-me-mode-btn-status--active {
+    @apply text-emerald-700;
+  }
+
+  .portal-me-mode-btn-status--learning {
+    @apply text-amber-700;
+  }
+
+  .portal-me-mode-btn-status--suspended {
+    @apply text-slate-500;
+  }
+
+  .portal-me-mode-btn-autonomy {
+    @apply inline-block max-w-full truncate rounded-md bg-indigo-100/80 px-1.5 py-0.5 text-[9px] font-bold leading-tight text-indigo-800;
+  }
+
+  .portal-me-metrics-block {
+    @apply shrink-0 flex flex-col pt-1;
+  }
+
+  .portal-me-metrics {
+    @apply grid grid-cols-2 gap-2;
+  }
+
+  .portal-me-metric-card {
+    @apply rounded-xl border border-white/60 bg-gradient-to-br from-slate-50/90 to-white/50 px-2.5 py-2;
+  }
+
+  .portal-me-metric-label {
+    @apply m-0 text-[10px] text-slate-500;
+  }
+
+  .portal-me-metric-value {
+    @apply m-0 mt-0.5 text-lg font-bold text-indigo-700;
+  }
+
+  .portal-me-progress {
+    @apply mt-2 shrink-0;
+  }
+
+  .portal-me-progress-track {
+    @apply mt-1 h-1.5 overflow-hidden rounded-full bg-slate-200/80;
+  }
+
+  .portal-me-progress-bar {
+    @apply h-full rounded-full bg-gradient-to-r from-indigo-500 to-blue-500 transition-[width] duration-500;
+  }
+
+  .portal-cohort-card {
+    @apply rounded-xl border border-white/60 bg-white/40 p-2.5 backdrop-blur-sm;
+  }
+
+  .portal-cohort-status {
+    @apply shrink-0 rounded-full bg-violet-100 px-1.5 py-0.5 text-[9px] font-bold text-violet-700;
+  }
+
+  .portal-kb-item {
+    @apply flex items-center gap-2 rounded-lg border border-transparent px-1.5 py-1.5 transition-colors hover:border-white/60 hover:bg-white/40;
+  }
+
+  .portal-brain-quick {
+    @apply shrink-0 rounded-xl border border-dashed border-violet-200/80 bg-violet-50/30 p-2.5;
+  }
+
+  .portal-brain-input {
+    @apply w-full resize-none rounded-lg border border-white/70 bg-white/60 px-2.5 py-2 text-xs text-slate-700 outline-none placeholder:text-slate-400 focus:border-violet-300 focus:ring-2 focus:ring-violet-500/15;
+  }
+
+  .portal-brain-btn {
+    @apply inline-flex items-center justify-center gap-1 rounded-lg px-2 py-1.5 text-[10px] font-bold transition-colors;
+  }
+
+  .portal-brain-btn--ghost {
+    @apply border border-slate-200/80 bg-white/50 text-slate-600 hover:bg-white;
+  }
+
+  .portal-brain-btn--primary {
+    @apply bg-violet-600 text-white shadow-sm hover:bg-violet-700;
+  }
+
+  .glass-chip-stat {
+    @apply inline-flex shrink-0 items-center rounded-full border border-white/50 bg-white/40 px-3 py-1 text-xs font-semibold whitespace-nowrap text-slate-600 backdrop-blur-sm;
+  }
+
+  .glass-agent-insight {
+    @apply flex items-center gap-2.5 rounded-xl border border-dashed border-blue-200/70 bg-blue-50/40 px-3 py-2.5 backdrop-blur-sm;
+  }
+
+  .glass-agent-insight-icon {
+    @apply shrink-0 self-center text-base leading-none text-indigo-500;
+  }
+
+  .glass-agent-insight-content {
+    @apply flex min-w-0 flex-col gap-1;
+  }
+
+  .glass-agent-insight-label {
+    @apply m-0 text-xs font-semibold leading-tight tracking-wide text-blue-600/90;
+  }
+
+  .glass-agent-insight-text {
+    @apply m-0 text-sm leading-snug text-blue-900/85;
+  }
+
+  .glass-divider-soft {
+    @apply border-t border-white/40;
+  }
+
+  /* ── 待审批事务（PendingApprovals） ── */
+  .approval-section-header {
+    @apply mb-3 flex shrink-0 items-center justify-between gap-3 border-b border-white/50 pb-3;
+  }
+
+  .approval-section-header-title {
+    @apply flex min-w-0 items-center gap-2;
+  }
+
+  .approval-card-header {
+    @apply mb-1 flex min-w-0 items-center gap-2;
+  }
+
+  .approval-card-title {
+    @apply min-w-0 flex-1 truncate text-sm font-semibold leading-snug text-slate-800;
+  }
+
+  .approval-card-badges {
+    @apply flex shrink-0 flex-row items-center justify-end gap-1;
+  }
+
+  .approval-card-meta {
+    @apply mb-1.5 flex min-w-0 flex-nowrap items-center gap-x-1.5 overflow-hidden text-xs text-slate-500;
+  }
+
+  .approval-card-meta-category {
+    @apply shrink-0 font-medium text-indigo-600/90;
+  }
+
+  .approval-card-meta-dot {
+    @apply shrink-0 text-slate-300;
+  }
+
+  .approval-card-meta-time {
+    @apply shrink-0 whitespace-nowrap;
+  }
+
+  .approval-card-meta-applicant {
+    @apply min-w-0 truncate text-slate-400;
+  }
+
+  .approval-card-actions {
+    @apply mt-auto flex w-full flex-wrap items-center justify-end gap-1.5;
+  }
+
+  .approval-card {
+    @apply flex flex-col rounded-xl border p-3.5 backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-px hover:shadow-md hover:shadow-blue-900/5;
+  }
+
+  .approval-card--pending {
+    @apply border-white/60 bg-white/60 shadow-[0_4px_24px_rgba(0,0,0,0.04)];
+  }
+
+  .approval-card--processing {
+    @apply border-indigo-200/60 bg-white/70 shadow-[0_4px_24px_rgba(0,0,0,0.04)] animate-pulse;
+  }
+
+  .approval-card--suggested {
+    @apply border-blue-200/60 bg-white/75 shadow-[0_4px_24px_rgba(0,0,0,0.04)] ring-1 ring-blue-100/50;
+  }
+
+  .approval-card--auto-handled {
+    @apply border-white/40 bg-white/35 opacity-75 shadow-sm;
+  }
+
+  .approval-card--urgent {
+    @apply border-rose-200/50;
+  }
+
+  .approval-urgency-badge {
+    @apply inline-flex shrink-0 items-center gap-1 rounded-md border px-2 py-0.5 text-[10px] font-bold whitespace-nowrap;
+  }
+
+  .approval-urgency-badge--urgent {
+    @apply border-rose-300/70 bg-rose-50/90 text-rose-700;
+  }
+
+  .approval-urgency-badge--high {
+    @apply border-amber-300/70 bg-amber-50/90 text-amber-800;
+  }
+
+  .approval-status-badge {
+    @apply inline-flex shrink-0 items-center gap-1 rounded-md border px-2 py-0.5 text-[10px] font-semibold whitespace-nowrap;
+  }
+
+  .approval-status-badge--pending {
+    @apply border-white/50 bg-white/40 text-slate-600 backdrop-blur-sm;
+  }
+
+  .approval-status-badge--processing {
+    @apply border-indigo-200/80 bg-indigo-50 text-indigo-700;
+  }
+
+  .approval-status-badge--suggested {
+    @apply border-blue-200/80 bg-blue-50 text-blue-700;
+  }
+
+  .approval-status-badge--approved {
+    @apply border-emerald-200/80 bg-emerald-50 text-emerald-700;
+  }
+
+  .approval-status-badge--rejected {
+    @apply border-rose-200/80 bg-rose-50 text-rose-700;
+  }
+
+  .approval-processing-block {
+    @apply mb-3 flex items-start gap-2.5 rounded-lg border border-indigo-100/60 bg-indigo-50/40 px-3 py-2.5;
+  }
+
+  .approval-suggested-opinion {
+    @apply mb-2 rounded-lg border border-blue-100/60 bg-blue-50/80 px-2.5 py-1.5;
+  }
+
+  .approval-suggested-opinion-label {
+    @apply m-0 text-[10px] font-semibold leading-none tracking-wide text-blue-600/90;
+  }
+
+  .approval-suggested-opinion-text {
+    @apply m-0 mt-1 text-xs leading-snug text-blue-900/85;
+  }
+
+  .approval-adopt-btn {
+    @apply inline-flex shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-lg bg-gradient-to-r from-indigo-600/95 to-purple-600/95 px-3 py-1.5 text-xs font-semibold text-white shadow-[0_4px_14px_rgba(99,102,241,0.25),inset_0_1px_0_rgba(255,255,255,0.2)] transition-all duration-300 ease-out hover:-translate-y-px hover:from-indigo-600 hover:to-purple-600 active:scale-[0.98];
+  }
+
+  .approval-decision-detail-btn {
+    @apply inline-flex shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-lg border border-transparent px-2.5 py-1.5 text-xs font-medium text-slate-500 transition-all duration-300 ease-out hover:border-white/60 hover:bg-white/60 hover:text-slate-700;
+  }
+
+  /* ── 今日核心工作流（CoreWorkflowStream） ── */
+  .workflow-mdt-card {
+    @apply border-violet-200/40;
+  }
+
+  .workflow-mdt-accent {
+    @apply absolute left-0 top-0 h-full w-1 bg-violet-500;
+  }
+
+
+  .workflow-mdt-status-tag {
+    @apply inline-flex shrink-0 items-center gap-1 rounded-md border border-rose-200/80 bg-rose-50 px-2.5 py-1 text-xs font-semibold whitespace-nowrap text-rose-700;
+  }
+
+  .workflow-mdt-stepper {
+    @apply mb-3.5 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
+  }
+
+  .workflow-mdt-step--current {
+    @apply whitespace-nowrap text-xs font-medium text-blue-600;
+  }
+
+  .workflow-mdt-step--idle {
+    @apply whitespace-nowrap text-xs font-medium text-gray-400;
+  }
+
+  .workflow-mdt-step-divider {
+    @apply mx-2 h-px w-5 shrink-0 bg-gray-200 sm:w-6;
+  }
+
+  .workflow-mdt-insight {
+    @apply rounded-xl border border-dashed border-blue-200/70 bg-blue-50/40 p-3 backdrop-blur-sm;
+  }
+
+  .workflow-mdt-insight-divider {
+    @apply my-2.5 border-t border-blue-100/80;
+  }
+
+  .workflow-dept-badge {
+    @apply inline-flex shrink-0 items-center gap-1 rounded-md border px-2 py-1 text-xs font-semibold;
+  }
+
+  .workflow-dept-badge--green {
+    @apply border-emerald-100 bg-emerald-50 text-emerald-700;
+  }
+
+  .workflow-dept-badge--yellow {
+    @apply border-amber-100 bg-amber-50 text-amber-800;
+  }
+
+  .workflow-queue-scroll {
+    @apply flex gap-3 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
+  }
+
+  .workflow-queue-chip {
+    @apply glass-subcard flex min-w-[6.75rem] shrink-0 items-center gap-2.5 p-3 shadow-[0_2px_12px_rgba(0,0,0,0.03)];
+  }
+
+  .workflow-queue-identifier {
+    @apply text-xs font-bold leading-tight text-slate-500;
+  }
+
+  .workflow-queue-patient-name {
+    @apply mt-1.5 truncate text-sm font-semibold text-slate-800;
+  }
+
+  .workflow-queue-tone-tag {
+    @apply mt-1.5 inline-flex items-center gap-1.5 rounded border px-1.5 py-0.5 text-xs font-semibold leading-tight;
+  }
+
+  .workflow-queue-tone-dot {
+    @apply h-2 w-2 shrink-0 rounded-full;
+  }
+
+  .workflow-card-footer {
+    @apply glass-divider-soft mt-3 flex shrink-0 justify-end py-3;
+  }
+
+  .workflow-action-btn {
+    @apply inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-xl px-4 py-2 text-sm font-semibold text-white ring-1 ring-white/20 transition-all duration-200 hover:scale-[1.02] active:scale-95;
+  }
+}
+
+/* 工作流类型标签色（置于 @layer 外） */
+.workflow-type-tag-shift-handover {
+  color: rgb(3 105 161);
+}
+
+.workflow-type-tag-ward-rounds {
+  color: rgb(4 120 87);
+}
+
+.workflow-type-tag-mdt {
+  color: rgb(109 40 217);
+}
+
+.workflow-type-tag-vip-clinic {
+  color: rgb(146 64 14);
+}
+
+.workflow-type-tag-surgical-schedule {
+  color: rgb(190 18 60);
+}
+
+/* 工作流队列色标与操作按钮变体（置于 @layer 外，避免 Tailwind 将 -red/-amber 等解析为颜色变体而丢弃规则） */
+.workflow-queue-tone-dot-red {
+  background-color: rgb(244 63 94);
+}
+
+.workflow-queue-tone-dot-amber {
+  background-color: rgb(245 158 11);
+}
+
+.workflow-queue-tone-dot-green {
+  background-color: rgb(16 185 129);
+}
+
+.workflow-queue-tone-dot-violet {
+  background-color: rgb(139 92 246);
+}
+
+.workflow-queue-tone-dot-blue {
+  background-color: rgb(59 130 246);
+}
+
+.workflow-queue-tone-tag-red {
+  border-color: rgb(255 228 230);
+  background-color: rgb(255 241 242);
+  color: rgb(190 18 60);
+}
+
+.workflow-queue-tone-tag-amber {
+  border-color: rgb(254 243 199);
+  background-color: rgb(255 251 235);
+  color: rgb(146 64 14);
+}
+
+.workflow-queue-tone-tag-green {
+  border-color: rgb(209 250 229);
+  background-color: rgb(236 253 245);
+  color: rgb(4 120 87);
+}
+
+.workflow-queue-tone-tag-violet {
+  border-color: rgb(237 233 254);
+  background-color: rgb(245 243 255);
+  color: rgb(109 40 217);
+}
+
+.workflow-queue-tone-tag-blue {
+  border-color: rgb(219 234 254);
+  background-color: rgb(239 246 255);
+  color: rgb(29 78 216);
+}
+
+.workflow-action-btn-shift-handover {
+  background-image: linear-gradient(to right, rgb(2 132 199), rgb(8 145 178));
+  box-shadow:
+    0 4px 6px -1px rgb(14 165 233 / 0.25),
+    0 2px 4px -2px rgb(14 165 233 / 0.25);
+}
+
+.workflow-action-btn-shift-handover:hover {
+  background-image: linear-gradient(to right, rgb(3 105 161), rgb(14 116 144));
+}
+
+.workflow-action-btn-ward-rounds {
+  background-image: linear-gradient(to right, rgb(5 150 105), rgb(13 148 136));
+  box-shadow:
+    0 4px 6px -1px rgb(16 185 129 / 0.25),
+    0 2px 4px -2px rgb(16 185 129 / 0.25);
+}
+
+.workflow-action-btn-ward-rounds:hover {
+  background-image: linear-gradient(to right, rgb(4 120 87), rgb(15 118 110));
+}
+
+.workflow-action-btn-vip-clinic {
+  background-image: linear-gradient(to right, rgb(245 158 11), rgb(234 88 12));
+  box-shadow:
+    0 4px 6px -1px rgb(245 158 11 / 0.25),
+    0 2px 4px -2px rgb(245 158 11 / 0.25);
+}
+
+.workflow-action-btn-vip-clinic:hover {
+  background-image: linear-gradient(to right, rgb(217 119 6), rgb(194 65 12));
+}
+
+.workflow-action-btn-mdt {
+  background-image: linear-gradient(to right, rgb(124 58 237), rgb(79 70 229));
+  box-shadow:
+    0 4px 6px -1px rgb(139 92 246 / 0.25),
+    0 2px 4px -2px rgb(139 92 246 / 0.25);
+}
+
+.workflow-action-btn-mdt:hover {
+  background-image: linear-gradient(to right, rgb(109 40 217), rgb(67 56 202));
+}
+
+.workflow-action-btn-surgical-schedule {
+  background-image: linear-gradient(to right, rgb(225 29 72), rgb(220 38 38));
+  box-shadow:
+    0 4px 6px -1px rgb(244 63 94 / 0.25),
+    0 2px 4px -2px rgb(244 63 94 / 0.25);
+}
+
+.workflow-action-btn-surgical-schedule:hover {
+  background-image: linear-gradient(to right, rgb(190 18 60), rgb(185 28 28));
+}
+
+.workflow-action-btn-default {
+  background-image: linear-gradient(to right, rgb(37 99 235), rgb(79 70 229));
+  box-shadow:
+    0 4px 6px -1px rgb(59 130 246 / 0.25),
+    0 2px 4px -2px rgb(59 130 246 / 0.25);
+}
+
+.workflow-action-btn-default:hover {
+  background-image: linear-gradient(to right, rgb(29 78 216), rgb(67 56 202));
+}
+
+/* 极细半透明滚动条 — Portal / 工作区列表通用 */
+.custom-scrollbar {
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.28) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.22);
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.42);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(148, 163, 184, 0.58);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* 待审批紧急事务 — 仅边框呼吸，投影保持静态 */
+@keyframes approval-urgent-breathe {
+  0%,
+  100% {
+    border-color: rgba(244, 63, 94, 0.3);
+  }
+  50% {
+    border-color: rgba(244, 63, 94, 0.95);
+  }
+}
+
+.approval-urgent-shell {
+  position: relative;
+  isolation: isolate;
+  border-radius: 0.875rem;
+  padding: 2px;
+}
+
+.approval-urgent-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  border: 2px solid rgba(244, 63, 94, 0.55);
+  box-shadow: none;
+  animation: approval-urgent-breathe 2.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.approval-urgent-shell .approval-card {
+  position: relative;
+  z-index: 1;
+}
+
+.portal-approval-list .ant-list-item,
+.portal-workflow-list .ant-list-item {
+  display: block;
+}
+
+/* Portal 指令输入 — 处理中流光边框 */
+@keyframes omni-cmd-shimmer {
+  0% {
+    background-position: 200% 50%;
+  }
+  100% {
+    background-position: -200% 50%;
+  }
+}
+
+@keyframes omni-cmd-breathe {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.omni-cmd-form--processing::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(59, 130, 246, 0.45) 25%,
+    rgba(99, 102, 241, 0.55) 50%,
+    rgba(59, 130, 246, 0.45) 75%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: omni-cmd-shimmer 2.8s linear infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ── 门诊诊疗工作台（Workspace / Outpatient） ── */
+.workspace-back-btn {
+  @apply flex size-10 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white shadow-md transition-colors hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/40;
+}
+
+.workspace-header-actions {
+  @apply flex shrink-0 items-center gap-4;
+}
+
+.workspace-scenario-badge {
+  @apply flex items-center gap-2 rounded-full border border-blue-200/70 bg-blue-50/90 px-3.5 py-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)];
+}
+
+.workspace-scenario-dot {
+  @apply size-2 shrink-0 rounded-full bg-blue-500 shadow-[0_0_0_2px_rgba(59,130,246,0.15)];
+}
+
+.workspace-scenario-label {
+  @apply text-sm font-medium leading-none text-blue-600;
+}
+
+.workspace-header-divider {
+  @apply h-9 w-px shrink-0 bg-slate-200/90;
+}
+
+.workspace-header-user {
+  @apply flex items-center gap-3;
+}
+
+.workspace-header-user-text {
+  @apply flex flex-col items-end justify-center gap-0.5 text-right leading-tight;
+}
+
+.workspace-header-user-name {
+  @apply m-0 text-sm font-bold leading-tight text-slate-800;
+}
+
+.workspace-header-user-dept {
+  @apply m-0 text-xs leading-tight text-slate-500;
+}
+
+.workspace-header-avatar {
+  @apply flex size-10 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white shadow-[0_2px_8px_rgba(37,99,235,0.28)];
+}
+
+.workspace-shell-main {
+  @apply z-10 flex min-h-0 flex-1 flex-col overflow-hidden px-4 py-4;
+}
+
+.workspace-shell-body {
+  @apply flex min-h-0 flex-1 flex-col;
+}
+
+.workspace-layout {
+  @apply flex min-h-0 w-full flex-1 flex-row gap-4;
+}
+
+.workspace-queue-aside {
+  @apply flex w-[280px] shrink-0 flex-col overflow-hidden;
+}
+
+.workspace-main-panel {
+  @apply flex min-w-0 flex-1 flex-col;
+}
+
+.workspace-aux-aside {
+  @apply flex w-[280px] shrink-0 flex-col overflow-hidden;
+}
+
+.workspace-tab-badge {
+  @apply ml-1 inline-flex size-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold leading-none text-white;
+}
+
+.workspace-aux-vitals {
+  @apply grid grid-cols-3 gap-2 rounded-xl border border-white/60 bg-white/60 p-3;
+}
+
+.workspace-aux-vital-item {
+  @apply flex flex-col items-center gap-0.5 text-center;
+}
+
+.workspace-aux-vital-label {
+  @apply text-[10px] font-medium text-slate-400;
+}
+
+.workspace-aux-vital-value {
+  @apply text-sm font-bold text-slate-700;
+}
+
+.workspace-aux-vital-unit {
+  @apply text-[10px] text-slate-400;
+}
+
+.workspace-aux-warning {
+  @apply flex items-start gap-2 rounded-xl border border-amber-200/80 bg-amber-50/80 p-3;
+}
+
+.workspace-aux-result {
+  @apply flex items-start gap-2 rounded-xl border border-emerald-200/80 bg-emerald-50/80 p-3;
+}
+
+.workspace-aux-title {
+  @apply mb-4 flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-slate-500;
+}
+
+.workspace-aux-content {
+  @apply space-y-3 pb-2;
+}
+
+.workspace-aux-card {
+  @apply rounded-xl border border-white/70 bg-white/65 p-3 shadow-sm backdrop-blur-sm;
+}
+
+.workspace-aux-section-title {
+  @apply m-0 text-xs font-bold text-slate-700;
+}
+
+.workspace-aux-card-subtitle {
+  @apply mb-2 mt-1 text-[10px] text-slate-400;
+}
+
+.workspace-aux-visit-list,
+.workspace-aux-med-list {
+  @apply m-0 list-none space-y-2 p-0;
+}
+
+.workspace-aux-visit-item {
+  @apply relative rounded-lg border border-slate-100 bg-slate-50/80 p-2.5 pr-12;
+}
+
+.workspace-aux-visit-time {
+  @apply m-0 text-[10px] font-medium text-slate-400;
+}
+
+.workspace-aux-visit-diagnosis {
+  @apply m-0 mt-1 text-xs font-bold leading-snug text-slate-800;
+}
+
+.workspace-aux-visit-meta {
+  @apply m-0 mt-1 text-[10px] leading-relaxed text-slate-500;
+}
+
+.workspace-aux-view-btn {
+  @apply absolute right-2 top-2 rounded-md border border-slate-200 bg-white px-2 py-0.5 text-[10px] font-medium text-blue-600 transition-colors hover:border-blue-200 hover:bg-blue-50;
+}
+
+.workspace-aux-med-item {
+  @apply rounded-lg border border-slate-100 bg-slate-50/80 p-2.5;
+}
+
+.workspace-aux-med-head {
+  @apply flex items-start justify-between gap-2;
+}
+
+.workspace-aux-med-name {
+  @apply m-0 text-xs font-bold text-slate-800;
+}
+
+.workspace-aux-med-status {
+  @apply shrink-0 rounded px-1.5 py-0.5 text-[10px] font-medium text-emerald-700 bg-emerald-50;
+}
+
+.workspace-aux-med-status--warning {
+  @apply bg-amber-50 text-amber-700;
+}
+
+.workspace-aux-med-spec {
+  @apply m-0 mt-1 text-[10px] text-slate-500;
+}
+
+.workspace-aux-med-tag {
+  @apply mt-1.5 inline-block rounded bg-blue-50 px-1.5 py-0.5 text-[10px] font-medium text-blue-700;
+}
+
+.workspace-aux-lipid-chart {
+  @apply space-y-1;
+}
+
+.workspace-aux-lipid-svg {
+  @apply h-28 w-full;
+}
+
+.workspace-aux-lipid-target-line {
+  stroke: #22c55e;
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+  opacity: 0.85;
+}
+
+.workspace-aux-lipid-target-label {
+  @apply m-0 text-[10px] text-emerald-600;
+}
+
+.aux-mini-chart-svg {
+  @apply h-28 w-full;
+}
+
+.aux-mini-chart-grid {
+  stroke: rgb(226 232 240 / 0.9);
+  stroke-width: 1;
+}
+
+.aux-mini-chart-labels {
+  @apply flex justify-between px-1 text-[9px] text-slate-400;
+}
+
+.aux-mini-chart-legend {
+  @apply mt-1 flex flex-wrap gap-3 px-1;
+}
+
+.aux-mini-chart-legend-item {
+  @apply inline-flex items-center gap-1 text-[10px] text-slate-500;
+}
+
+.aux-mini-chart-legend-dot {
+  @apply inline-block size-2 rounded-full;
+}
+
+/* 辅助区 · 语音问诊 */
+.workspace-aux-voice-session {
+  @apply space-y-3;
+}
+
+.workspace-aux-voice-card {
+  @apply border-blue-100/70;
+}
+
+.workspace-aux-transcript-card {
+  @apply border-violet-100/60;
+}
+
+.aux-voice-wave {
+  @apply flex h-14 items-center justify-center gap-0.5 rounded-lg border border-blue-100/60 bg-gradient-to-b from-blue-50/80 to-white px-3;
+}
+
+.aux-voice-wave--paused .aux-voice-wave-bar,
+.aux-voice-wave--stopped .aux-voice-wave-bar {
+  animation-play-state: paused;
+  opacity: 0.35;
+  transform: scaleY(0.35);
+}
+
+.aux-voice-wave-bar {
+  @apply w-1 rounded-full bg-blue-500/85;
+  height: 28%;
+  animation: aux-voice-wave-pulse 0.85s ease-in-out infinite alternate;
+}
+
+@keyframes aux-voice-wave-pulse {
+  from {
+    height: 22%;
+    opacity: 0.55;
+  }
+  to {
+    height: 92%;
+    opacity: 1;
+  }
+}
+
+.aux-voice-controls {
+  @apply mt-3 flex gap-2;
+}
+
+.aux-voice-btn {
+  @apply inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all disabled:cursor-not-allowed disabled:opacity-45;
+}
+
+.aux-voice-btn--secondary {
+  @apply border border-slate-200/80 bg-white text-slate-700 hover:bg-slate-50;
+}
+
+.aux-voice-btn--danger {
+  @apply border border-red-200/80 bg-red-50 text-red-600 hover:bg-red-100/80;
+}
+
+.aux-voice-transcript {
+  @apply max-h-52 space-y-2 overflow-y-auto rounded-lg border border-slate-100/70 bg-slate-50/50 p-2.5;
+}
+
+.aux-voice-transcript-empty {
+  @apply m-0 text-center text-xs leading-relaxed text-slate-400;
+}
+
+.aux-voice-transcript-line {
+  @apply rounded-lg px-2.5 py-2;
+}
+
+.aux-voice-transcript-line--doctor {
+  @apply border border-blue-100/70 bg-blue-50/70;
+}
+
+.aux-voice-transcript-line--patient {
+  @apply border border-slate-100/80 bg-white/90;
+}
+
+.aux-voice-transcript-role {
+  @apply mb-1 block text-[10px] font-bold uppercase tracking-wide;
+}
+
+.aux-voice-transcript-line--doctor .aux-voice-transcript-role {
+  @apply text-blue-600;
+}
+
+.aux-voice-transcript-line--patient .aux-voice-transcript-role {
+  @apply text-slate-500;
+}
+
+.aux-voice-transcript-text {
+  @apply m-0 text-xs leading-relaxed text-slate-700;
+}
+
+.aux-voice-transcript-listening {
+  @apply m-0 animate-pulse text-center text-[10px] text-blue-500;
+}
+
+.workspace-ai-avatar {
+  @apply flex size-8 items-center justify-center rounded-full border border-blue-100 bg-white/80 shadow-sm;
+}
+
+.workspace-user-avatar {
+  @apply flex size-8 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white shadow-[0_2px_6px_rgba(37,99,235,0.22)];
+}
+
+.workspace-input-bar {
+  @apply flex shrink-0 justify-center border-t border-slate-100/80 bg-slate-50/30 px-5 py-4;
+}
+
+.workspace-omni-form {
+  @apply flex w-4/5 max-w-full items-center gap-1 rounded-full bg-white py-2 pl-3 pr-2 shadow-[0_4px_18px_rgba(15,23,42,0.07)] transition-shadow duration-200 focus-within:shadow-[0_6px_24px_rgba(15,23,42,0.1)];
+}
+
+.workspace-omni-mic {
+  @apply flex size-9 shrink-0 items-center justify-center rounded-full text-slate-400 transition-colors hover:text-slate-600 disabled:cursor-not-allowed disabled:opacity-40;
+}
+
+.workspace-omni-input {
+  @apply min-w-0 flex-1 border-0 bg-transparent px-1 py-2 text-sm text-slate-700 outline-none ring-0 placeholder:text-slate-400 disabled:opacity-60;
+}
+
+.workspace-omni-send {
+  @apply flex size-9 shrink-0 items-center justify-center rounded-full bg-[#c8d2e0] text-white transition-all duration-200 disabled:cursor-not-allowed disabled:bg-[#dce3ed] disabled:text-white/80;
+}
+
+.workspace-omni-send--active {
+  @apply cursor-pointer bg-gradient-to-r from-blue-600 to-indigo-600 shadow-[0_4px_14px_rgba(37,99,235,0.28)] hover:from-blue-700 hover:to-indigo-700 hover:shadow-[0_6px_18px_rgba(37,99,235,0.35)] active:scale-95;
+}
+
+.workspace-think-log {
+  @apply rounded-xl p-3 text-sm shadow-sm;
+}
+
+.workspace-think-log-system {
+  @apply mr-4 border border-white/50 bg-white/70 text-slate-600;
+}
+
+.workspace-think-log-success {
+  @apply mr-4 border border-emerald-100 bg-emerald-50 text-emerald-700;
+}
+
+.workflow-think-label,
+.workspace-think-label {
+  @apply mb-1 block text-[10px] font-bold text-slate-400;
+}
+
+.workspace-think-log-success .workspace-think-label {
+  color: rgb(5 150 105);
+}
+
+.workspace-think-log-user {
+  @apply ml-4 bg-blue-100 text-blue-800;
+}
+
+.workspace-think-log-user .workspace-think-label {
+  color: rgb(96 165 250);
+}
+
+.workspace-think-loading {
+  @apply mr-4 flex items-center gap-1 rounded-xl border border-white/50 bg-white/50 p-3;
+}
+
+.workspace-think-dot {
+  @apply size-1.5 animate-bounce rounded-full bg-blue-400;
+}
+
+.workspace-think-dot.delay-1 {
+  animation-delay: 0.1s;
+}
+
+.workspace-think-dot.delay-2 {
+  animation-delay: 0.2s;
+}
+
+.animate-in-fade {
+  animation: workspace-fade-in 0.45s ease-out both;
+}
+
+@keyframes workspace-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 患者队列卡片状态 */
+.outpatient-queue-card-active {
+  border-color: rgb(147 197 253 / 0.6) !important;
+  background-color: rgb(255 255 255 / 0.8) !important;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08);
+  outline: 2px solid rgb(219 234 254 / 0.5);
+}
+
+.outpatient-queue-card-done {
+  opacity: 0.7;
+}
+
+.outpatient-queue-status {
+  @apply shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold leading-none;
+}
+
+.outpatient-queue-status-idle {
+  border: 1px solid rgb(255 255 255 / 0.5);
+  background-color: rgb(255 255 255 / 0.4);
+  color: rgb(71 85 105);
+}
+
+.outpatient-queue-status-active {
+  background-image: linear-gradient(to right, rgb(37 99 235 / 0.95), rgb(79 70 229 / 0.95));
+  color: white;
+  box-shadow: 0 1px 3px rgb(30 58 138 / 0.2);
+}
+
+.outpatient-queue-status-followup {
+  border: 1px solid rgb(254 215 170 / 0.6);
+  background-color: rgb(255 247 237 / 0.7);
+  color: rgb(194 65 12);
+}
+
+.outpatient-queue-status-done {
+  border: 1px solid rgb(255 255 255 / 0.4);
+  background-color: rgb(255 255 255 / 0.35);
+  color: rgb(100 116 139);
+}
+
+/* 诊疗主画布 — 患者信息 + 分诊顶栏（固定 64px） */
+.outpatient-main-header {
+  @apply relative z-10 h-16 shrink-0 py-0;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  transition: box-shadow 0.2s ease;
+}
+
+.outpatient-main-header--elevated {
+  box-shadow:
+    0 2px 8px rgba(15, 23, 42, 0.06),
+    0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.outpatient-triage-header {
+  @apply flex h-full w-full min-w-0 flex-row items-center justify-between gap-3;
+}
+
+.outpatient-patient-info {
+  @apply flex min-w-0 flex-1 items-center gap-3;
+}
+
+.outpatient-patient-avatar-wrap {
+  @apply flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-white/80 bg-white/60 shadow-sm;
+}
+
+.outpatient-patient-avatar {
+  @apply size-full object-cover object-center;
+}
+
+.outpatient-patient-info-text {
+  @apply min-w-0 flex-1;
+}
+
+.outpatient-patient-info-line1 {
+  @apply m-0 flex min-w-0 flex-wrap items-center gap-2 leading-tight;
+}
+
+.outpatient-patient-name {
+  @apply shrink-0 text-lg font-bold text-slate-800;
+}
+
+.outpatient-patient-labels {
+  @apply inline-flex min-w-0 flex-wrap items-center gap-1.5;
+}
+
+.outpatient-patient-label-chip {
+  @apply inline-flex shrink-0 items-center rounded-full border px-2.5 py-0.5 text-[11px] font-medium leading-none;
+}
+
+.outpatient-patient-label-chip--visit {
+  @apply border-blue-200/80 bg-blue-50/90 text-blue-700;
+}
+
+.outpatient-patient-label-chip--insurance {
+  @apply border-emerald-200/80 bg-emerald-50/90 text-emerald-700;
+}
+
+.outpatient-patient-label-chip--condition {
+  @apply border-amber-200/80 bg-amber-50/90 text-amber-800;
+}
+
+.outpatient-patient-label-chip--default {
+  @apply border-white/60 bg-white/50 text-slate-600;
+}
+
+.outpatient-patient-info-line2 {
+  @apply m-0 mt-0.5 flex min-w-0 flex-wrap items-center gap-x-1.5 text-[11px] leading-snug text-slate-500;
+}
+
+.outpatient-patient-meta-allergy {
+  @apply font-semibold text-rose-600;
+}
+
+.outpatient-patient-meta-dot {
+  @apply text-slate-300;
+}
+
+.outpatient-triage-actions {
+  @apply flex shrink-0 flex-wrap items-center justify-end gap-2;
+}
+
+.outpatient-triage-btn {
+  @apply relative inline-flex h-7 items-center justify-center rounded-md border px-3 text-xs font-semibold shadow-sm transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 active:scale-[0.98];
+}
+
+.outpatient-triage-btn--recall {
+  @apply border-orange-300 bg-orange-100 text-orange-800 hover:border-orange-400 hover:bg-orange-200 focus-visible:ring-orange-400/40;
+}
+
+.outpatient-triage-btn--next {
+  @apply border-emerald-300 bg-emerald-100 text-emerald-800 hover:border-emerald-400 hover:bg-emerald-200 focus-visible:ring-emerald-400/40;
+}
+
+.outpatient-triage-btn--cancel {
+  @apply border-rose-300 bg-rose-100 text-rose-800 hover:border-rose-400 hover:bg-rose-200 focus-visible:ring-rose-400/40;
+}
+
+.outpatient-triage-btn--end {
+  @apply border-blue-600 bg-blue-600 text-white shadow-md hover:border-blue-700 hover:bg-blue-700 focus-visible:ring-blue-500/45;
+}
+
+/* 会话区：TODO 清单 + 聊天滚屏 */
+.outpatient-session-body {
+  @apply flex min-h-0 flex-1 overflow-hidden bg-transparent;
+}
+
+.outpatient-todo-shell {
+  @apply flex w-[15%] min-w-[168px] max-w-[240px] shrink-0 overflow-hidden;
+}
+
+.outpatient-todo-enter-active,
+.outpatient-todo-leave-active {
+  transition:
+    max-width 0.42s ease,
+    min-width 0.42s ease,
+    width 0.42s ease,
+    opacity 0.32s ease,
+    transform 0.42s ease;
+}
+
+.outpatient-todo-enter-from,
+.outpatient-todo-leave-to {
+  width: 0;
+  min-width: 0;
+  max-width: 0;
+  opacity: 0;
+  transform: translateX(-14px);
+}
+
+.outpatient-todo-panel {
+  @apply flex h-full w-full min-w-[168px] flex-col overflow-hidden border-r border-slate-200/70 bg-transparent;
+}
+
+.outpatient-todo-header {
+  @apply flex shrink-0 items-center justify-between gap-2 border-b border-slate-200/70 px-3 py-2.5;
+}
+
+.outpatient-todo-header-title {
+  @apply text-xs font-bold text-slate-700;
+}
+
+.outpatient-todo-header-count {
+  @apply inline-flex min-w-[1.25rem] items-center justify-center rounded-full bg-slate-500/15 px-1.5 py-0.5 text-[10px] font-bold text-slate-600;
+}
+
+.outpatient-todo-list {
+  @apply flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto p-2;
+}
+
+.outpatient-todo-empty {
+  @apply m-0 rounded-lg border border-dashed border-slate-200/80 bg-white/30 px-2 py-6 text-center text-[11px] leading-relaxed text-slate-400;
+}
+
+.outpatient-todo-card {
+  @apply flex min-h-[5rem] max-h-[7.5rem] flex-col justify-between rounded-xl border p-2.5 shadow-sm backdrop-blur-sm;
+}
+
+.outpatient-todo-card-title {
+  @apply m-0 line-clamp-2 text-xs font-bold leading-snug text-slate-800;
+}
+
+.outpatient-todo-card-subtitle {
+  @apply m-0 mt-1 line-clamp-1 text-[11px] leading-snug text-slate-600;
+}
+
+.outpatient-todo-card-actions {
+  @apply mt-2 flex flex-wrap gap-1.5;
+}
+
+.outpatient-todo-action-btn {
+  @apply inline-flex h-6 flex-1 items-center justify-center rounded-md border border-white/60 bg-white/50 px-2 text-[10px] font-semibold text-slate-600 backdrop-blur-sm transition-colors hover:bg-white/75;
+}
+
+.outpatient-todo-action-btn--primary {
+  @apply border-transparent font-bold text-white;
+}
+
+.outpatient-todo-card--critical {
+  @apply border-red-200/80 bg-[#FEF2F2];
+}
+
+.outpatient-todo-card--critical .outpatient-todo-card-title {
+  @apply text-red-700;
+}
+
+.outpatient-todo-card--critical .outpatient-todo-action-btn--primary {
+  @apply bg-red-500/90 hover:bg-red-600;
+}
+
+.outpatient-todo-card--important {
+  @apply border-orange-200/80 bg-[#FEF7EB];
+}
+
+.outpatient-todo-card--important .outpatient-todo-card-title {
+  @apply text-orange-800;
+}
+
+.outpatient-todo-card--important .outpatient-todo-action-btn--primary {
+  @apply bg-orange-500/90 hover:bg-orange-600;
+}
+
+.outpatient-todo-card--normal {
+  @apply border-blue-200/80 bg-[#EFF6FF];
+}
+
+.outpatient-todo-card--normal .outpatient-todo-action-btn--primary {
+  @apply bg-blue-500/90 hover:bg-blue-600;
+}
+
+.outpatient-todo-card--auxiliary {
+  @apply border-slate-200/80 bg-[#F8FAFC];
+}
+
+.outpatient-todo-card--success {
+  @apply border-emerald-200/80 bg-[#ECFDF5];
+}
+
+.outpatient-chat-panel {
+  @apply min-w-0 flex-1 scroll-smooth bg-transparent;
+}
+
+.outpatient-session-block {
+  @apply animate-in-fade items-start;
+}
+
+.outpatient-session-block--agent {
+  --outpatient-session-avatar-size: 2rem;
+  --outpatient-session-avatar-gap: 0.75rem;
+  margin-right: calc(
+    var(--outpatient-session-avatar-size) + var(--outpatient-session-avatar-gap)
+  );
+  @apply items-start;
+}
+
+.outpatient-session-agent-title {
+  @apply mb-3 min-w-0 text-sm font-bold leading-snug text-slate-700;
+}
+
+.outpatient-session-agent-body {
+  @apply min-w-0 flex-1;
+}
+
+.outpatient-session-agent-body > .outpatient-panorama,
+.outpatient-session-agent-body > .outpatient-visit-record,
+.outpatient-session-agent-body > .outpatient-consultation,
+.outpatient-session-agent-body > .outpatient-orders-card {
+  @apply w-full;
+}
+
+.outpatient-session-block > .workspace-ai-avatar {
+  margin-top: calc((1.25rem - 2rem) / 2);
+}
+
+.outpatient-session-block--record > .workspace-ai-avatar {
+  margin-top: 0.125rem;
+}
+
+.outpatient-session-block-user {
+  --outpatient-session-avatar-size: 2rem;
+  --outpatient-session-avatar-gap: 0.75rem;
+  @apply animate-in-fade;
+}
+
+.outpatient-session-block-user > .workspace-user-avatar {
+  margin-top: calc((1.25rem - 2rem) / 2);
+}
+
+.outpatient-session-user-bubble {
+  max-width: calc(
+    100% - var(--outpatient-session-avatar-size) - var(--outpatient-session-avatar-gap)
+  );
+  @apply rounded-2xl rounded-tr-md border border-blue-100 bg-blue-50 px-3.5 py-2.5 shadow-sm;
+}
+
+.outpatient-session-user-text {
+  @apply m-0 text-sm leading-relaxed text-slate-700;
+}
+
+.outpatient-session-record {
+  @apply flex items-start gap-3;
+}
+
+.outpatient-session-record-bubble {
+  @apply max-w-[85%] rounded-2xl rounded-tl-md border border-emerald-100 bg-[#ECFDF5] px-3.5 py-2.5 shadow-sm;
+}
+
+.outpatient-session-record-label {
+  @apply m-0 text-[10px] font-bold text-emerald-600;
+}
+
+.outpatient-session-record-text {
+  @apply m-0 mt-1 text-sm leading-relaxed text-slate-700;
+}
+
+/* 会话区微表单外壳（按类型区分边框/背景） */
+.outpatient-microform-shell {
+  @apply flex w-full flex-col overflow-hidden rounded-xl backdrop-blur-md;
+  box-shadow:
+    0 1px 2px rgb(15 23 42 / 0.04),
+    0 4px 12px rgb(15 23 42 / 0.03);
+}
+
+.outpatient-microform-shell--panorama {
+  @apply border border-blue-200/70 bg-white/90;
+  box-shadow:
+    0 0 0 1px rgb(219 234 254 / 0.35),
+    0 1px 2px rgb(37 99 235 / 0.05),
+    0 6px 16px rgb(37 99 235 / 0.06);
+}
+
+.outpatient-microform-shell--visit-record {
+  @apply border border-amber-200/65 bg-amber-50/20;
+  box-shadow:
+    0 0 0 1px rgb(254 243 199 / 0.4),
+    0 1px 2px rgb(245 158 11 / 0.05),
+    0 6px 16px rgb(245 158 11 / 0.06);
+}
+
+.outpatient-panorama-header {
+  @apply shrink-0 border-b border-slate-100/70 px-4 py-2.5;
+}
+
+.outpatient-microform-shell--panorama .outpatient-panorama-header {
+  @apply border-blue-100/60;
+  background: linear-gradient(
+    135deg,
+    rgb(239 246 255 / 0.88) 0%,
+    rgb(248 250 252 / 0.92) 55%,
+    rgb(255 255 255 / 0.95) 100%
+  );
+}
+
+.outpatient-microform-header--visit-record {
+  @apply border-amber-100/60;
+  background: linear-gradient(
+    135deg,
+    rgb(255 251 235 / 0.92) 0%,
+    rgb(254 252 232 / 0.88) 55%,
+    rgb(255 255 255 / 0.95) 100%
+  );
+}
+
+.outpatient-panorama-header-title {
+  @apply m-0 text-[13px] font-semibold tracking-tight text-slate-700;
+}
+
+.outpatient-panorama-body {
+  @apply flex min-h-0 flex-col md:flex-row;
+}
+
+.outpatient-panorama-body--single .outpatient-panorama-main {
+  @apply md:border-r-0;
+}
+
+.outpatient-panorama-main {
+  @apply min-w-0 flex-1 border-b border-slate-100/70 md:border-b-0 md:border-r md:border-slate-100/70;
+}
+
+.outpatient-panorama-vitals {
+  @apply grid grid-cols-2 gap-px border-b border-slate-100/70 bg-slate-100/50 sm:grid-cols-4;
+}
+
+.outpatient-panorama-vital-item {
+  @apply flex flex-col items-center bg-white/95 px-3 py-2.5 text-center;
+}
+
+.outpatient-panorama-vital-label {
+  @apply text-xs text-slate-500;
+}
+
+.outpatient-panorama-vital-value {
+  @apply mt-1 text-base font-bold text-slate-800;
+}
+
+.outpatient-panorama-vital-value--alert {
+  @apply text-red-600;
+}
+
+.outpatient-panorama-vital-value-sep {
+  @apply text-slate-800;
+}
+
+.outpatient-panorama-vital-unit {
+  @apply mt-0.5 text-[10px] text-slate-400;
+}
+
+.outpatient-panorama-record {
+  @apply space-y-2 py-4 pr-4 pl-8;
+}
+
+.outpatient-panorama-record-item {
+  @apply m-0 flex items-start gap-1.5 text-left leading-relaxed text-slate-600;
+}
+
+.outpatient-panorama-record-label {
+  @apply w-[4.25rem] shrink-0 text-right font-bold text-slate-600;
+}
+
+.outpatient-panorama-record-text {
+  @apply min-w-0 flex-1 text-slate-600;
+}
+
+.outpatient-panorama-visits {
+  @apply w-full shrink-0 bg-slate-50/30 md:w-[14rem] lg:w-[15rem];
+}
+
+.outpatient-panorama-visits-heading {
+  @apply m-0 border-b border-slate-100/70 px-4 py-2.5 text-xs font-semibold text-slate-500;
+}
+
+.outpatient-panorama-visits-list {
+  @apply m-0 max-h-[22rem] list-none space-y-2 overflow-y-auto p-3;
+}
+
+.outpatient-panorama-visit-item {
+  @apply relative rounded-lg border border-slate-100/80 bg-white/90 p-2.5 pr-12 shadow-[0_1px_3px_rgba(15,23,42,0.04)];
+}
+
+.outpatient-panorama-visit-time {
+  @apply m-0 text-[10px] font-medium text-slate-400;
+}
+
+.outpatient-panorama-visit-meta {
+  @apply m-0 mt-0.5 text-[10px] leading-relaxed text-slate-500;
+}
+
+.outpatient-panorama-visit-diagnosis {
+  @apply m-0 mt-1.5 text-xs font-bold leading-snug text-slate-800;
+}
+
+.outpatient-panorama-visit-view-btn {
+  @apply absolute right-2 top-2 shrink-0 rounded-md border border-slate-200/80 bg-white px-2 py-0.5 text-[11px] font-medium text-blue-600 transition-colors hover:border-blue-200/80 hover:bg-blue-50/80 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.outpatient-panorama-reports {
+  @apply w-full shrink-0 border-t border-slate-100/70 bg-slate-50/40 md:w-[17.5rem] md:border-t-0 lg:w-[19rem];
+}
+
+.outpatient-panorama-body:not(.outpatient-panorama-body--single) .outpatient-panorama-visits {
+  @apply border-b border-slate-100/70 md:border-b-0 md:border-r md:border-slate-100/70;
+}
+
+.outpatient-panorama-reports-heading {
+  @apply m-0 flex items-center gap-1.5 border-b border-slate-100/70 px-4 py-2.5 text-xs font-semibold text-slate-500;
+}
+
+.outpatient-panorama-reports-count {
+  @apply ml-auto rounded-full bg-slate-200/80 px-1.5 py-0.5 text-[10px] font-bold text-slate-600;
+}
+
+.outpatient-panorama-reports-tabs {
+  @apply flex shrink-0 gap-0.5 border-b border-slate-100/70 px-3 py-2;
+}
+
+.outpatient-panorama-reports-tab {
+  @apply flex-1 rounded-md px-2 py-1 text-center text-[11px] font-medium text-slate-500 transition-colors hover:bg-white/80 hover:text-slate-700 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.outpatient-panorama-reports-tab--active {
+  @apply bg-white text-blue-600 shadow-sm ring-1 ring-slate-200/80;
+}
+
+.outpatient-panorama-reports-empty {
+  @apply list-none px-1 py-4 text-center text-xs text-slate-400;
+}
+
+.outpatient-panorama-reports-list {
+  @apply m-0 max-h-[22rem] list-none space-y-2 overflow-y-auto p-3;
+}
+
+.outpatient-panorama-report-card {
+  @apply rounded-lg border border-slate-100/80 bg-white/90 p-2.5 shadow-[0_1px_3px_rgba(15,23,42,0.04)];
+}
+
+.outpatient-panorama-report-head {
+  @apply flex items-start gap-2;
+}
+
+.outpatient-panorama-report-title {
+  @apply m-0 text-xs font-bold leading-snug text-slate-800;
+}
+
+.outpatient-panorama-report-date {
+  @apply m-0 mt-1 text-[10px] text-slate-400;
+}
+
+.outpatient-panorama-report-view-btn {
+  @apply shrink-0 rounded-md border border-slate-200/80 bg-white px-2 py-0.5 text-[11px] font-medium text-blue-600 transition-colors hover:border-blue-200/80 hover:bg-blue-50/80 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.outpatient-panorama-report-abnormal {
+  @apply m-0 mt-2 text-xs leading-relaxed text-red-600;
+}
+
+.outpatient-panorama-report-abnormal--normal {
+  @apply text-slate-600;
+}
+
+.outpatient-panorama-footer {
+  @apply flex shrink-0 flex-wrap items-center justify-end gap-2.5 border-t border-slate-100/70 bg-white/40 px-4 py-2.5;
+}
+
+.outpatient-panorama-btn {
+  @apply inline-flex items-center justify-center gap-1.5 rounded-lg px-4 py-1.5 text-xs font-semibold transition-all disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.outpatient-panorama-btn--primary {
+  @apply bg-blue-600 text-white shadow-[0_1px_4px_rgba(37,99,235,0.25)] hover:bg-blue-700 active:scale-[0.99];
+}
+
+.outpatient-panorama-btn--secondary {
+  @apply border border-slate-200/80 bg-white text-slate-700 hover:border-slate-300/80 hover:bg-slate-50/80 active:scale-[0.99];
+}
+
+/* 历史就诊病历微表单 */
+.outpatient-visit-record-emr {
+  @apply space-y-2.5 px-4 py-3.5 text-[13px] leading-relaxed text-slate-800;
+  background: linear-gradient(
+    180deg,
+    rgb(255 251 235 / 0.35) 0%,
+    rgb(254 252 232 / 0.18) 50%,
+    rgb(255 255 255 / 0.1) 100%
+  );
+}
+
+.outpatient-visit-record-line {
+  @apply m-0 text-left leading-[1.65];
+}
+
+.outpatient-visit-record-line--block .outpatient-visit-record-value {
+  @apply mt-1 block whitespace-pre-line;
+}
+
+.outpatient-visit-record-label {
+  @apply font-bold text-slate-900;
+}
+
+.outpatient-visit-record-value {
+  @apply font-normal text-slate-800;
+}
+
+/* 检验报告详情弹窗（纸质版式） */
+.lab-report-modal-panel {
+  @apply text-slate-900;
+}
+
+.lab-report-modal-aside {
+  @apply min-h-0;
+}
+
+.lab-report-modal-tabs {
+  @apply flex shrink-0 gap-0.5 border-b border-slate-200 p-2;
+}
+
+.lab-report-modal-tab {
+  @apply flex-1 rounded-md px-2 py-1.5 text-center text-xs font-medium text-slate-500 transition-colors hover:bg-white/80 hover:text-slate-700;
+}
+
+.lab-report-modal-tab--active {
+  @apply bg-white text-blue-600 shadow-sm ring-1 ring-slate-200/80;
+}
+
+.lab-report-modal-list-item {
+  @apply flex w-full flex-col gap-0.5 rounded-lg border border-transparent px-2.5 py-2 text-left transition-colors hover:bg-white/90;
+}
+
+.lab-report-modal-list-item--active {
+  @apply border-blue-200/80 bg-white shadow-sm ring-1 ring-blue-100/60;
+}
+
+.lab-report-modal-list-title {
+  @apply text-xs font-semibold leading-snug text-slate-800;
+}
+
+.lab-report-modal-list-date {
+  @apply text-[10px] text-slate-400;
+}
+
+.lab-report-modal-list-summary {
+  @apply line-clamp-2 text-[10px] leading-snug text-slate-500;
+}
+
+.lab-report-modal-list-summary--alert {
+  @apply text-amber-700;
+}
+
+.lab-report-exam-sheet {
+  @apply border border-slate-300 bg-white px-6 py-5 text-sm text-slate-800 shadow-sm;
+}
+
+.lab-report-exam-sheet-head {
+  @apply border-b border-slate-300 pb-4 text-center;
+}
+
+.lab-report-exam-sheet-title {
+  @apply m-0 text-lg font-bold text-slate-900;
+}
+
+.lab-report-exam-sheet-meta {
+  @apply m-0 mt-2 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-slate-500;
+}
+
+.lab-report-exam-sheet-body {
+  @apply py-5;
+}
+
+.lab-report-exam-sheet-section-title {
+  @apply m-0 mb-2 text-xs font-bold uppercase tracking-wide text-slate-600;
+}
+
+.lab-report-exam-sheet-content {
+  @apply m-0 whitespace-pre-line text-sm leading-relaxed text-slate-700;
+}
+
+.lab-report-exam-sheet-footnote {
+  @apply m-0 border-t border-slate-200 pt-3 text-center text-[11px] text-slate-500;
+}
+
+.ecg-holter-sheet {
+  @apply border border-slate-400 bg-white px-5 py-4 text-[11px] leading-snug text-slate-900 shadow-sm;
+}
+
+.ecg-holter-sheet-head {
+  @apply border-b border-slate-400 pb-2 text-center;
+}
+
+.ecg-holter-sheet-hospital {
+  @apply m-0 text-sm font-bold tracking-wide text-slate-900;
+}
+
+.ecg-holter-sheet-title {
+  @apply m-0 mt-1 text-base font-bold text-slate-900;
+}
+
+.ecg-holter-sheet-patient {
+  @apply my-2 grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-4;
+}
+
+.ecg-holter-sheet-patient-item {
+  @apply flex min-w-0 items-baseline gap-1;
+}
+
+.ecg-holter-sheet-patient-item dt {
+  @apply m-0 shrink-0 font-semibold after:content-['：'];
+}
+
+.ecg-holter-sheet-patient-item dd {
+  @apply m-0 min-w-0;
+}
+
+.ecg-holter-sheet-grid {
+  @apply grid grid-cols-1 gap-2 sm:grid-cols-2;
+}
+
+.ecg-holter-panel {
+  @apply border border-slate-400 p-2;
+}
+
+.ecg-holter-panel-title {
+  @apply m-0 mb-1.5 border-b border-slate-300 pb-1 text-center text-xs font-bold text-slate-800;
+}
+
+.ecg-holter-panel-unit {
+  @apply ml-1 text-[10px] font-normal text-slate-500;
+}
+
+.ecg-holter-panel-text {
+  @apply m-0 px-1 text-[11px] leading-relaxed text-slate-800;
+}
+
+.ecg-holter-panel-body {
+  @apply m-0 space-y-0.5;
+}
+
+.ecg-holter-panel-body--cols {
+  @apply grid grid-cols-2 gap-x-2 gap-y-0.5;
+}
+
+.ecg-holter-stat {
+  @apply flex min-w-0 items-baseline gap-1;
+}
+
+.ecg-holter-stat--indent {
+  @apply pl-3;
+}
+
+.ecg-holter-stat--full {
+  @apply col-span-2;
+}
+
+.ecg-holter-stat dt {
+  @apply m-0 shrink-0 after:content-['：'];
+}
+
+.ecg-holter-stat dd {
+  @apply m-0 min-w-0 flex-1;
+}
+
+.ecg-holter-stat-note {
+  @apply text-[10px] text-slate-600;
+}
+
+.ecg-holter-conclusion {
+  @apply mt-2 border border-slate-400 p-2;
+}
+
+.ecg-holter-conclusion-title {
+  @apply m-0 mb-1 text-center text-xs font-bold text-slate-800;
+}
+
+.ecg-holter-conclusion-list {
+  @apply m-0 list-decimal space-y-0.5 pl-5 text-[11px] leading-relaxed text-slate-800;
+}
+
+.ecg-holter-sheet-footer {
+  @apply mt-2 flex flex-wrap justify-between gap-x-4 gap-y-1 border-t border-slate-300 pt-2 text-[10px] text-slate-700;
+}
+
+.lab-report-sheet {
+  @apply relative border-0 bg-white px-4 py-3 text-[11px] leading-snug text-slate-900 shadow-none;
+}
+
+.lab-report-sheet-title-wrap {
+  @apply relative mb-2 border-b border-slate-300 pb-2 text-center;
+}
+
+.lab-report-sheet-title {
+  @apply m-0 text-base font-bold tracking-wide;
+}
+
+.lab-report-sheet-subtitle {
+  @apply m-0 mt-0.5 text-[10px] text-slate-600;
+}
+
+.lab-report-sheet-qr {
+  @apply absolute right-0 top-0 flex size-[4.5rem] items-center justify-center bg-white p-0.5;
+}
+
+.lab-report-sheet-qr-img {
+  @apply block size-[4rem] object-contain;
+}
+
+.lab-report-sheet-meta-grid {
+  @apply grid grid-cols-2 gap-x-3 gap-y-1 sm:grid-cols-4;
+}
+
+.lab-report-sheet-meta-grid--matrix {
+  @apply mb-2 grid-cols-4 grid-rows-4 gap-x-2 gap-y-1.5 pb-0;
+}
+
+.lab-report-sheet-meta-item--empty {
+  @apply min-h-0;
+}
+
+.lab-report-sheet-meta-item {
+  @apply flex min-w-0 items-baseline gap-1;
+}
+
+.lab-report-sheet-meta-label {
+  @apply m-0 shrink-0 font-semibold after:content-['：'];
+}
+
+.lab-report-sheet-meta-value {
+  @apply m-0 min-w-0 flex-1 leading-snug;
+}
+
+.lab-report-sheet-table {
+  @apply mb-3 w-full border-collapse border border-slate-300 text-[11px];
+}
+
+.lab-report-sheet-table th,
+.lab-report-sheet-table td {
+  @apply border border-slate-300 px-1.5 py-1 align-middle;
+}
+
+.lab-report-sheet-table th {
+  @apply bg-slate-50 text-center font-semibold;
+}
+
+.lab-report-sheet-table td:nth-child(1),
+.lab-report-sheet-table td:nth-child(3),
+.lab-report-sheet-table td:nth-child(4),
+.lab-report-sheet-table td:nth-child(6) {
+  @apply text-center;
+}
+
+.lab-report-sheet-row--emphasis td {
+  @apply font-bold;
+}
+
+.lab-report-sheet-row--high td {
+  @apply text-red-600;
+}
+
+.lab-report-sheet-row--low td {
+  @apply text-blue-600;
+}
+
+.lab-report-sheet-judgment--high {
+  @apply font-semibold;
+}
+
+.lab-report-sheet-judgment--low {
+  @apply font-semibold;
+}
+
+.lab-report-sheet-footer {
+  @apply space-y-1 pt-1 text-[10px] leading-snug text-slate-700;
+}
+
+.lab-report-sheet-footer-grid {
+  @apply grid grid-cols-2 gap-x-3 gap-y-1 sm:grid-cols-4;
+}
+
+.lab-report-sheet-note {
+  @apply m-0;
+}
+
+.lab-report-sheet-notes-inline {
+  @apply m-0 leading-snug;
+}
+
+/* 实时问诊 */
+.outpatient-consultation-shell {
+  @apply relative w-full overflow-hidden rounded-2xl border border-blue-200 bg-white/90 shadow-lg backdrop-blur-md;
+}
+
+.outpatient-consultation-shell-followup {
+  border-color: rgb(199 210 254 / 0.8);
+  background-color: rgb(255 255 255 / 0.75);
+}
+
+.outpatient-consultation-wave {
+  @apply absolute right-3 top-3 flex items-center gap-0.5;
+}
+
+.outpatient-consultation-wave-bar {
+  @apply w-0.5 animate-bounce rounded-full;
+  animation-duration: 0.5s;
+}
+
+.outpatient-consultation-footer {
+  @apply border-t border-slate-100/80 bg-white/40 backdrop-blur-md;
+}
+
+.outpatient-consultation-btn-secondary {
+  @apply rounded-xl border border-slate-200/90 py-3 text-sm font-medium text-slate-600 transition-colors hover:bg-white/60;
+}
+
+.outpatient-consultation-btn-primary {
+  @apply rounded-xl bg-emerald-600/95 py-3 text-sm font-bold text-white shadow-md shadow-emerald-600/20 transition-colors hover:bg-emerald-700;
+}
+
+/* 申请单草案 */
+.outpatient-orders-card {
+  @apply w-full overflow-hidden rounded-2xl border border-slate-200 bg-white/90 shadow-lg backdrop-blur-md;
+}
+
+.outpatient-orders-lis {
+  @apply overflow-hidden rounded-2xl border border-blue-100 bg-blue-50/40 shadow-sm;
+}
+
+.outpatient-orders-ris {
+  @apply overflow-hidden rounded-2xl border border-indigo-100 bg-indigo-50/40 shadow-sm;
+}
+
+.outpatient-orders-section-title {
+  @apply flex items-center gap-2 border-b px-4 py-3 text-sm font-bold tracking-wide;
+}
+
+.outpatient-orders-section-title.lis {
+  @apply border-blue-100/80 bg-blue-100/60 text-blue-800;
+}
+
+.outpatient-orders-section-title.ris {
+  @apply border-indigo-100/80 bg-indigo-100/60 text-indigo-800;
+}
+
+.outpatient-orders-item {
+  @apply rounded-xl border border-slate-50 bg-white p-3 shadow-sm transition-colors hover:border-blue-100;
+}
