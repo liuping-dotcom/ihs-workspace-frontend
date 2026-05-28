@@ -309,7 +309,7 @@
               <div class="grid grid-cols-3 gap-3">
                 <a-card :bordered="true" class="cursor-pointer border-slate-200/90 bg-white/40 backdrop-blur-sm">
                   <div class="mb-1 text-sm font-bold text-slate-700">Copilot (辅助模式)</div>
-                  <div class="text-xs text-slate-500">仅提供建议与草稿，所有决策需陈主任手动点击确认。</div>
+                  <div class="text-xs text-slate-500">仅提供建议与草稿，所有决策需张主任手动点击确认。</div>
                 </a-card>
                 <a-card :bordered="true" class="relative border-2 border-blue-500 bg-blue-50/40 backdrop-blur-sm">
                   <div
@@ -482,8 +482,8 @@ import OmniInputBar from './components/OmniInputBar.vue'
 const taskStore = useTaskStore()
 
 const userProfile = {
-  name: '陈主任',
-  department: '心血管内科',
+  name: '张主任',
+  department: '神经内科',
   activeAgentsCount: 3,
 }
 
@@ -566,12 +566,12 @@ const INITIAL_AGENT_POOL = [
   },
   {
     id: 'cli_3',
-    name: '心内查房研判助手',
+    name: '神内查房研判助手',
     type: 'plugin',
     isSubscribed: false,
     locked: false,
-    desc: '融合移动查房与体征数据。针对危重心衰、心梗进行病情研判。',
-    provider: '心内科',
+    desc: '融合移动查房与神经功能评估。针对急性卒中、癫痫持续状态进行病情研判。',
+    provider: '神经内科',
     version: 'v3.0',
     skills: ['体征动态研判', '下级方案校对'],
   },

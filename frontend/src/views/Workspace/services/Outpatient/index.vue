@@ -23,8 +23,8 @@
         <span class="workspace-header-divider" aria-hidden="true" />
         <div class="workspace-header-user">
           <div class="workspace-header-user-text">
-            <p class="workspace-header-user-name">陈主任</p>
-            <p class="workspace-header-user-dept">心血管内科</p>
+            <p class="workspace-header-user-name">张主任</p>
+            <p class="workspace-header-user-dept">神经内科</p>
           </div>
           <div class="workspace-header-avatar" aria-hidden="true">
             <UserOutlined class="text-xl" />
@@ -198,7 +198,7 @@
         <aside class="workspace-aux-aside glass-sidebar">
           <div class="border-b border-white/40 px-4 py-3">
             <h3 class="workspace-aux-title !mb-0">
-              <HeartOutlined aria-hidden />
+              <ExperimentOutlined aria-hidden />
               辅助信息
             </h3>
           </div>
@@ -234,7 +234,7 @@ import {
   ThunderboltOutlined,
   RobotOutlined,
   AudioOutlined,
-  HeartOutlined,
+  ExperimentOutlined,
   SendOutlined,
   CheckCircleOutlined,
   UserOutlined,
@@ -303,8 +303,9 @@ function findQueuePatient(taskId) {
 }
 
 function buildPatientLabels(patient) {
+  if (patient.patientLabels?.length) return patient.patientLabels
   const visitLabel = patient.visitType === '复诊' ? '复诊' : '初诊'
-  return [visitLabel, '市医保', '高血压']
+  return [visitLabel, '市医保', '随访中']
 }
 
 function buildProfileFromQueue(patient) {

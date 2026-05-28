@@ -32,11 +32,11 @@
         <div class="glass-subcard space-y-2 border-emerald-100/50 bg-emerald-50/30 p-2.5">
           <div class="flex items-center gap-2 text-xs text-slate-700">
             <WechatOutlined class="shrink-0 text-base text-emerald-600" aria-hidden />
-            <span>正在轮询：心血管时间</span>
+            <span>正在轮询：神经内科时间</span>
           </div>
           <div class="flex items-center gap-2 text-xs text-slate-700">
             <GlobalOutlined class="shrink-0 text-base text-sky-600" aria-hidden />
-            <span>正在轮询：NEJM Cardiology</span>
+            <span>正在轮询：NEJM Neurology</span>
           </div>
         </div>
       </section>
@@ -126,21 +126,21 @@ const structuredCards = [
   {
     id: 'card-1',
     tag: '概念解析',
-    title: 'HFrEF 治疗中 ARNI 替代 ACEI 的血流动力学优势机制',
+    title: '急性缺血性卒中静脉溶栓时间窗与出血风险权衡机制',
     extracting: false,
     statusText: '已链接至 3 个本体节点',
   },
   {
     id: 'card-2',
     tag: '指南更新',
-    title: '2024 ESC 心衰指南：SGLT2i 在 HFpEF 中的证据等级与适用边界',
+    title: '2024 AAN 癫痫指南：药物难治性癫痫的手术评估路径',
     extracting: false,
     statusText: '已链接至 5 个本体节点',
   },
   {
     id: 'card-3',
     tag: '文献速览',
-    title: 'EMPEROR-Preserved 亚组：肾功能分层下的心血管结局',
+    title: 'ADNI 亚组：APOE ε4 携带者认知衰退速率差异',
     extracting: true,
     statusText: 'Claude 正在抽提卡片...',
   },

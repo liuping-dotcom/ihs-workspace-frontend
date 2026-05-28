@@ -7,7 +7,7 @@ export const INITIAL_GLOBAL_TASKS = [
     persona: '【临床-知名专家】',
     title: '特需门诊首诊 (患者: 赵强)',
     agent: '预问诊 Agent',
-    summary: '患者赵强因反复胸闷伴心悸 1 周就诊，AI 已跨域调取全景档案。',
+    summary: '患者赵强因反复头痛伴右侧肢体麻木 1 周就诊，AI 已跨域调取全景档案。',
     suggestion: '请点击进入工作舱开启首诊语音问诊。',
     status: 'pending',
     role: '门诊专家',

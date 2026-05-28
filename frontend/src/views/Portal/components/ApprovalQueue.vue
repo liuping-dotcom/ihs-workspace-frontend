@@ -358,13 +358,13 @@ const taskStore = useTaskStore()
 const consultModalOpen = ref(false)
 
 const consultMock = {
-  title: '神经内科申请心内科急会诊',
+  title: '急诊科申请神经内科急会诊',
   patient: { bed: '3床', name: '李伟', gender: '男', age: '68岁' },
   aiSummary:
-    '昨日因急性脑梗死入院，今晨突发喘憋，端坐呼吸，血氧 88%，BNP 8400 pg/ml。',
-  aiAlert: 'AI 预警：高度疑似急性左心衰发作，需紧急干预。',
-  applicant: '神内一病区 · 王建国 主任医师',
-  purpose: '评估心衰状态，指导利尿及强心治疗',
+    '急诊绿色通道收治，发病 2.5 小时，右侧肢体无力，NIHSS 12 分，头颅 CT 未见出血。',
+  aiAlert: 'AI 预警：急性缺血性卒中，仍在静脉溶栓时间窗内，需紧急评估。',
+  applicant: '急诊科 · 王建国 主任医师',
+  purpose: '评估静脉溶栓指征，指导血压控制与抗栓方案',
   recommended: [
     {
       id: 'doc_zhang',
@@ -373,7 +373,7 @@ const consultMock = {
       status: '空闲中',
       statusTone: 'green',
       statusHint: '今日二线值班',
-      location: '心内病区护士站',
+      location: '神经内科护士站',
       eta: '预计到达神内用时 3 分钟',
       preferred: true,
     },
@@ -384,7 +384,7 @@ const consultMock = {
       status: '查房中',
       statusTone: 'amber',
       statusHint: '',
-      location: '心内病区 12床',
+      location: '神经内科 12床',
       eta: '',
       preferred: false,
     },

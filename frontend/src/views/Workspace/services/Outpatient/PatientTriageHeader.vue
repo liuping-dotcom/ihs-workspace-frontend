@@ -70,6 +70,11 @@ const LABEL_CHIP_CLASS = {
   复诊: 'outpatient-patient-label-chip--visit',
   市医保: 'outpatient-patient-label-chip--insurance',
   高血压: 'outpatient-patient-label-chip--condition',
+  脑卒中: 'outpatient-patient-label-chip--condition',
+  癫痫: 'outpatient-patient-label-chip--condition',
+  偏头痛: 'outpatient-patient-label-chip--condition',
+  帕金森病: 'outpatient-patient-label-chip--condition',
+  阿尔茨海默病: 'outpatient-patient-label-chip--condition',
 }
 
 function labelChipClass(label) {

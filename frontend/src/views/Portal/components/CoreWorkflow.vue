@@ -251,7 +251,6 @@ import {
   ApartmentOutlined,
   MedicineBoxOutlined,
   CrownOutlined,
-  HeartOutlined,
   ClockCircleOutlined,
   EnvironmentOutlined,
   DesktopOutlined,
@@ -331,10 +330,10 @@ function typeIconComponent(type) {
     ward_rounds: MedicineBoxOutlined,
     mdt: FundOutlined,
     vip_clinic: CrownOutlined,
-    surgical_schedule: HeartOutlined,
+    surgical_schedule: ThunderboltOutlined,
     research_cohort: ExperimentOutlined,
   }
-  return map[type] ?? HeartOutlined
+  return map[type] ?? MedicineBoxOutlined
 }
 
 function workflowStyleSuffix(type) {

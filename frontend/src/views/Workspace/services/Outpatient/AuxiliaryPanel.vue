@@ -21,9 +21,9 @@
       />
     </section>
 
-    <!-- 近期血脂趋势 -->
+    <!-- 近期同型半胱氨酸趋势 -->
     <section class="workspace-aux-card">
-      <h4 class="workspace-aux-section-title">近期血脂趋势图</h4>
+      <h4 class="workspace-aux-section-title">近期同型半胱氨酸趋势图</h4>
       <p class="workspace-aux-card-subtitle">{{ data.lipidTrend.sourceLabel }}</p>
       <div class="workspace-aux-lipid-chart">
         <svg
@@ -31,7 +31,7 @@
           viewBox="0 0 280 112"
           preserveAspectRatio="none"
           role="img"
-          aria-label="近五年血脂趋势"
+          aria-label="近五年同型半胱氨酸趋势"
         >
           <line
             v-for="(y, idx) in lipidGridYs"
@@ -76,7 +76,7 @@
     <!-- 近期用药 -->
     <section class="workspace-aux-card">
       <h4 class="workspace-aux-section-title">近期用药情况</h4>
-      <p class="workspace-aux-card-subtitle">高血压 · 冠心病 · 高脂血症 长期用药</p>
+      <p class="workspace-aux-card-subtitle">脑卒中 · 高血压 · 癫痫预防 长期用药</p>
       <ul class="workspace-aux-med-list">
         <li v-for="med in data.medications" :key="med.id" class="workspace-aux-med-item">
           <div class="workspace-aux-med-head">
